@@ -1,0 +1,146 @@
+<div class="col-md-5" ng-controller="FormCtrl">
+    <form name="contactForm" novalidate>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-white">
+                    <span class="pull-left post-title"
+                          contenteditable
+                          ng-model="contact.name"></span>
+                    <span class="pull-right post-title"
+                          contenteditable
+                          ng-model="contact.designation"></span>
+                    <div class="clearfix"></div>
+                    
+                    <hr class="style-two" />
+                    
+                    <div class="form-group">
+                        <input type="text" 
+                               class="form-control"
+                               name="company"
+                               ng-minlength=3
+                               ng-model="contact.company"
+                               placeholder="[ Company Name ]">
+                            <div ng-show="contactForm.company.$invalid && contactForm.company.$dirty && contactForm.company.$error.minlength">
+                                What company has only 2 letter for a name?
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email"
+                               required 
+                               class="form-control"
+                               name="email" 
+                               ng-model="contact.email"
+                               placeholder="[ Email ]">
+                        <div class="help-block">
+                            <div ng-show="contactForm.email.$invalid && contactForm.email.$dirty && contactForm.email.$error.required">
+                                You must provide an email address
+                            </div>
+                        </div>
+                        <div class="help-block">
+                            <div ng-show="contactForm.email.$invalid && contactForm.email.$dirty && contactForm.email.$error.email">
+                                Invalid email format
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="url" 
+                               class="form-control" 
+                               name="website"
+                               ng-model="contact.website"
+                               placeholder="[ Website ]">
+                            <div ng-show="contactForm.website.$invalid && contactForm.website.$dirty && contactForm.website.$error.url">
+                                Please enter http://your.url
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" 
+                                  rows=4
+                                  name="address"
+                                  required 
+                                  ng-model="contact.address"
+                                  placeholder="[ Address ]">
+                        </textarea>
+                        <div class="help-block">
+                            <div ng-show="contactForm.address.$invalid && contactForm.address.$dirty">
+                                You must enter address
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-repeat="phone in contact.phones" ng-form="phoneForm">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-group select"
+                                        style="width: 100%"
+                                        ng-model="phone.type"
+                                        ng-options="i as i.label for i in phone_types track by i.label"></select>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text"
+                                           name="number"
+                                           class="form-control" 
+                                           ng-model="phone.number"
+                                           required
+                                           placeholder="[ Number ]" />
+                                    <div class="help-block">
+                                        <div ng-show="phoneForm.number.$invalid && phoneForm.number.$dirty">
+                                            Please enter a phone number
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <button class="form-control btn btn-sm alizarin"
+                                            ng-click="removePhone($index)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="pull-left" style="margin-top: 10px">
+                            <button class="btn btn-circle emerald" ng-click="setColor('emerald')">
+                                <span ng-show="contact.color == 'emerald'"><i class="fa fa-check"></i></span>
+                            </button>
+                            <button class="btn btn-circle amethyst" ng-click="setColor('amethyst')">
+                                <span ng-show="contact.color == 'amethyst'"><i class="fa fa-check"></i></span>
+                            </button>
+                            <button class="btn btn-circle sun-flower" ng-click="setColor('sun-flower')">
+                                <span ng-show="contact.color == 'sun-flower'"><i class="fa fa-check"></i></span>
+                            </button>
+                            <button class="btn btn-circle pomegranate" ng-click="setColor('pomegranate')">
+                                <span ng-show="contact.color == 'pomegranate'"><i class="fa fa-check"></i></span>
+                            </button>
+                            <button class="btn btn-circle asbestos" ng-click="setColor('asbestos')">
+                                <span ng-show="contact.color == 'asbestos'"><i class="fa fa-check"></i></span>
+                            </button>
+                        </div>
+                        <div class="pull-right" 
+                             ng-click="addPhone()"
+                             style="margin-top: 10px">
+                            <button class="btn belize-hole btn-wide">
+                                <i class="fa fa-phone"></i>
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-white">
+                    <center>
+                        <button class="btn btn-lg alizarin" ng-click="clearContact()">Clear</button>
+                        <button class="btn btn-lg wet-asphalt" 
+                                ng-disabled="contactForm.$invalid" 
+                                ng-click="saveContact()">Save</button>
+                    </center>
+                </div>
+            </div>
+        </div>        
+    </form>
+</div>
+

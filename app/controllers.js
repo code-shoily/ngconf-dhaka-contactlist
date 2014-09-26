@@ -16,6 +16,7 @@ app.controller("FormCtrl", ["$scope", "ContactService", function($scope, Contact
 
     $scope.clearContact = function() {
         $scope.contact = ContactService.newContact();
+        $scope.contactForm.$setPristine();
     };
     
     $scope.saveContact = function() {
