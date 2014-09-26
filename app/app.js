@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('app', ['contact.controllers', 'contact.directives']);
+var app = angular.module('app', ['contact.controllers', 'contact.directives', 'ngAnimate']);
 
 var TimeCtrl = function($scope, $timeout) {
     $scope.clock = "loading clock..."; // initialise the time variable

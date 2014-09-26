@@ -220,3 +220,27 @@ textarea.ng-invalid.ng-dirty {
     margin-bottom: 30px;
 }
 
+.welcome-date {
+    font-family: "Cabin Sketch", cursive;
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.phone-form-repeat.ng-enter,
+.phone-form-repeat.ng-move {
+  animation: fadeIn 1s;
+}
+
+.phone-form-repeat.ng-leave {
+  animation: fadeOut 0.5s;
+}
+
+.contact-list-repeat.ng-enter,
+.contact-list-repeat.ng-move {
+    animation: bounce 1s;
+}
+
+.contact-list-repeat.ng-enter {
+    animation: bounce 1s;
+}

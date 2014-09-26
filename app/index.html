@@ -9,6 +9,7 @@
   <title>{AngularConf 2014}</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -20,33 +21,30 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="welcome pull-left">
-                AngularConf Dhaka '14
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="welcome pull-left">
+                    AngularConf Dhaka '14
+                </div>
+                <div class="welcome-date pull-right" ng-controller="TimeCtrl">
+                    {{ clock|date:'short' }}
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="welcome pull-right" ng-controller="TimeCtrl">
-                {{ clock|date:'short' }}
-            </div>
-            <div class="clearfix"></div>
+        </div>
+        <div class="row">
+            <ng-include src="'contact_form.html'"></ng-include>
+            <ng-include src="'contact_list.html'"></ng-include>
         </div>
     </div>
-    <div class="row">
-        <ng-include src="'contact_form.html'"></ng-include>
-        <ng-include src="'contact_list.html'"></ng-include>
-    </div>
-  </div>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="services.js"></script>
-  <script src="controllers.js"></script>
-  <script src="directives.js"></script>
-  <script src="app.js"></script>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  
-  <script>
-  </script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="services.js"></script>
+    <script src="controllers.js"></script>
+    <script src="directives.js"></script>
+    <script src="app.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
