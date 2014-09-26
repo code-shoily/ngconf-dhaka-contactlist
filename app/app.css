@@ -1,5 +1,19 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+/*@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700);
+*/
+
+@font-face {
+    font-family: "Oswald";
+    src: url('components/fonts/Oswald-Regular.ttf') format('truetype'),
+         url('components/fonts/Oswald-Bold.ttf') format('truetype'),
+         url('components/fonts/Oswald-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Cabin Sketch";
+    src: url('components/fonts/CabinSketch-Regular.ttf') format('truetype'),
+         url('components/fonts/CabinSketch-Bold.ttf') format('truetype');
+}
 
 body {
     margin-top: 20px;
