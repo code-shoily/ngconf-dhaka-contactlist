@@ -5,6 +5,12 @@ This is a demo application that will be flaunted in the first ever AngularJS con
 This is a simple contact list that includes many of the features of AngularJS. To run it, simply clone this repo, `cd` into it and in the command line, type:
 
 ```
+bower install
+```
+
+And then:
+
+```
 npm start
 ```
 
