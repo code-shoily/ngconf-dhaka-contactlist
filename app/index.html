@@ -141,6 +141,28 @@
 
                 <hr class="style-two">
                 <div class="well well-cloud">
+
+                <!-- Single button -->
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    {{ predicate }} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li ng-repeat="p in props" ng-click="alert('HI')"><a>{{ p }}</a></li>
+                  </ul>
+                </div>
+
+
+
+                    <button class="btn btn-sm wet-asphalt" 
+                            ng-click="reverse = false">
+                        <i class="fa fa-sort-alpha-asc"></i>
+                    </button>
+                    <button class="btn btn-sm belize-hole" 
+                            ng-click="reverse = true">                                                
+                        <i class="fa fa-sort-alpha-desc"></i>
+                    </button>
+                    <! -- -->
                     <button class="btn btn-sm alizarin pull-right" 
                             style="margin-left: 5px"
                             ng-click="search = null">
@@ -149,10 +171,13 @@
                     <input class="input input-sm pull-right" ng-model="search" />
                     <div class="clearfix"></div>
                 </div>
-                <div ng-repeat="contact in contactList|filter:search track by $index">
+                <div ng-repeat="contact in contactList|filter:search|orderBy:predicate:reverse track by $index">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="well well-cloud" ng-class="getColor(contact.color)">
+                                <span class="display-name" 
+                                      style="color: #c0392b"
+                                      ng-show="contact.favorite"><i class="fa fa-heart"></i></span>
                                 <span class="display-name">{{ contact.name }}</span>
                                 <span class="display-designation">{{ contact.designation }}</span>
                                 <span class="pull-right">
@@ -161,6 +186,9 @@
                                     </button>
                                     <button class="btn btn-circle pomegranate" ng-click="delete(contact)">
                                         <i class="fa fa-trash-o" style="color:white"></i>
+                                    </button>
+                                    <button class="btn btn-circle amethyst" ng-click="toggleFavorite(contact)">
+                                        <i class="fa fa-heart-o" style="color:white"></i>
                                     </button>
                                 </span>
                                 <div class="clearfix"></div>
@@ -187,9 +215,6 @@
         <!-- /CONTACT LIST -->
     </div>
   </div>
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="services.js"></script>

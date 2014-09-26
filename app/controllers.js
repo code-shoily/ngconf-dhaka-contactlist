@@ -49,4 +49,10 @@ app.controller("ContactListCtrl", ["$scope", "ContactService", function($scope, 
     $scope.delete = function(contact) {
         ContactService.deleteContact(contact);
     }
+    $scope.toggleFavorite = function(contact) {
+        ContactService.toggleFavorite(contact);
+    }
+    
+    $scope.predicate = "name";
+    $scope.props = ["name", "favorite", "company"]
 }]);

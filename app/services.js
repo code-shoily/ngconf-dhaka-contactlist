@@ -9,6 +9,10 @@ services.service('ContactService', ["$rootScope", function($rootScope) {
         this.list.splice(this.list.indexOf(contact), 1);
         $rootScope.$broadcast("contact.selected", contact);
     }
+    
+    this.toggleFavorite = function(contact) {
+        contact.favorite = !contact.favorite;
+    }
 
     this.deleteContact = function(contact) {
         this.list.splice(this.list.indexOf(contact), 1);
@@ -48,6 +52,7 @@ services.service('ContactService', ["$rootScope", function($rootScope) {
             website: "",
             address: "",
             color: "emerald",
+            favorite: false,
             phones: []
         }
     }
