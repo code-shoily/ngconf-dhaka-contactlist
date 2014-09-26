@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,28 +26,165 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-5" ng-controller="FormCtrl">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-white">
+                        <span class="pull-left post-title"
+                              contenteditable
+                              ng-model="contact.name"></span>
+                        <span class="pull-right post-title"
+                              contenteditable
+                              ng-model="contact.designation"></span>
+                        <div class="clearfix"></div>
+                        
+                        <hr class="style-two" />
+                        
+                        <div class="form-group">
+                            <input type="text" 
+                                   class="form-control" 
+                                   ng-model="contact.company"
+                                   placeholder="[ Company Name ]">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" 
+                                   class="form-control" 
+                                   ng-model="contact.email"
+                                   placeholder="[ Email ]">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" 
+                                   class="form-control" 
+                                    ng-model="contact.website"
+                                   placeholder="[ Website ]">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" 
+                                      rows=4 
+                                      ng-model="contact.address"
+                                      placeholder="[ Address ]">
+                            </textarea>
+                        </div>
+                        <div ng-repeat="phone in contact.phones">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select class="form-group select"
+                                            style="width: 100%"
+                                            ng-model="phone.type"
+                                            ng-options="i as i.label for i in phone_types track by i.label"></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" 
+                                               class="form-control" 
+                                               ng-model="phone.number"
+                                               placeholder="[ Number ]" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <button class="form-control btn btn-sm alizarin"
+                                                ng-click="removePhone($index)">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="pull-left" style="margin-top: 10px">
+                                <button class="btn btn-circle emerald" ng-click="setColor('emerald')">
+                                    <span ng-show="contact.color == 'emerald'"><i class="fa fa-check"></i></span>
+                                </button>
+                                <button class="btn btn-circle amethyst" ng-click="setColor('amethyst')">
+                                    <span ng-show="contact.color == 'amethyst'"><i class="fa fa-check"></i></span>
+                                </button>
+                                <button class="btn btn-circle sun-flower" ng-click="setColor('sun-flower')">
+                                    <span ng-show="contact.color == 'sun-flower'"><i class="fa fa-check"></i></span>
+                                </button>
+                                <button class="btn btn-circle pomegranate" ng-click="setColor('pomegranate')">
+                                    <span ng-show="contact.color == 'pomegranate'"><i class="fa fa-check"></i></span>
+                                </button>
+                                <button class="btn btn-circle asbestos" ng-click="setColor('asbestos')">
+                                    <span ng-show="contact.color == 'asbestos'"><i class="fa fa-check"></i></span>
+                                </button>
+                            </div>
+                            <div class="pull-right" 
+                                 ng-click="addPhone()"
+                                 style="margin-top: 10px">
+                                <button class="btn belize-hole btn-wide">
+                                    <i class="fa fa-phone"></i>
+                                </button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-white">
+                        <center>
+                            <button class="btn btn-lg alizarin" ng-click="clearContact()">Clear</button>
+                            <button class="btn btn-lg wet-asphalt" ng-click="saveContact()">Save</button>
+                        </center>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        <!-- CONTACT LIST -->
+        <div class="col-md-7" ng-controller="ContactListCtrl">
             <div class="well well-white">
-                <span class="pull-left post-title">Mafinar Khan</span>
-                <span class="pull-right post-title"><i class="fa fa-pencil"></i> Post of 2014</span>
+                <div class="pull-left post-title">[ Contact List ]</div>
+                <div class="pull-right post-total">[ {{ contactList.length }} ]</div>
                 <div class="clearfix"></div>
-                <hr class="style-two" />
-                <textarea style="width:100%" rows=4 placeholder="What's on your mind right now?"></textarea>
 
-                <div class="pull-left" style="margin-top: 10px">
-                    <button class="btn btn-circle emerald"></button>
-                    <button class="btn btn-circle amethyst"></button>
-                    <button class="btn btn-circle sun-flower"></button>
-                    <button class="btn btn-circle pomegranate"></button>
-                    <button class="btn btn-circle asbestos"></button>
+                <hr class="style-two">
+                <div class="well well-cloud">
+                    <button class="btn btn-sm alizarin pull-right" 
+                            style="margin-left: 5px"
+                            ng-click="search = null">
+                        <i class="fa fa-remove"></i>
+                    </button>
+                    <input class="input input-sm pull-right" ng-model="search" />
+                    <div class="clearfix"></div>
                 </div>
-                <div class="pull-right" style="margin-top: 10px">
-                    <button class="btn alizarin">Clear</button>
-                    <button class="btn wet-asphalt">Enter</button>
+                <div ng-repeat="contact in contactList|filter:search track by $index">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="well well-cloud" ng-class="getColor(contact.color)">
+                                <span class="display-name">{{ contact.name }}</span>
+                                <span class="display-designation">{{ contact.designation }}</span>
+                                <span class="pull-right">
+                                    <button class="btn btn-circle sun-flower" ng-click="edit(contact)">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-circle pomegranate" ng-click="delete(contact)">
+                                        <i class="fa fa-trash-o" style="color:white"></i>
+                                    </button>
+                                </span>
+                                <div class="clearfix"></div>
+                                <hr />
+                                <div class="display-company">{{ contact.company }}</div>
+                                <div class="display-website">
+                                    <a href="http://{{ contact.website }}">{{ contact.website }}</a>
+                                </div>
+                                <div class="display-address">
+                                    {{ contact.address }}
+                                </div>
+                                <div ng-repeat="p in contact.phones">
+                                    {{ p.number }} [{{ p.type.label }}]
+                                </div>
+                                <span class="display-email">
+                                    {{ contact.email }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
         </div>
+        <!-- /CONTACT LIST -->
     </div>
   </div>
   <!-- In production use:
@@ -55,21 +192,14 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="services.js"></script>
+  <script src="controllers.js"></script>
+  <script src="directives.js"></script>
   <script src="app.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  
   <script>
-    $("textarea").keyup(function(e) {
-        while($(this).outerHeight() < this.scrollHeight 
-                + parseFloat($(this).css("borderTopWidth")) 
-                + parseFloat($(this).css("borderBottomWidth"))) {
-            $(this).height($(this).height()+1);
-        };
-    });
   </script>
 </body>
 </html>

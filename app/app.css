@@ -23,15 +23,38 @@ body {
     border: none;
 }
 
+.well-cloud {
+    background: white;    
+    border: none;
+    border-radius: 0;
+}
+
 .post-title {
     font-size: 24px;
     font-weight: 300;
 }
 
+.post-total {
+    font-size: 26px;
+    font-weight: 300;
+}
+
 textarea {
     resize: none;
-    background: #34495e;
-    color:white;
+    background: #34495e !important;
+    color:white !important;
+    outline: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+input {
+    resize: none;
+    background: #34495e !important;
+    color:white !important;
     outline: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -64,20 +87,40 @@ hr.style-two {
     background: #1abc9c;
 }
 
+.turquoise-border {
+    border-left: #1abc9c 3px solid;
+}
+
 .emerald {
     background: #2ecc71;
+}
+
+.emerald-border {
+    border-left: #2ecc71 3px solid;
 }
 
 .amethyst {
     background: #9b59b6;
 }
 
+.amethyst-border {
+    border-left: #9b59b6 3px solid;
+}
+
 .pomegranate {
     background: #c0392b;
 }
 
+.pomegranate-border {
+    border-left: #c0392b 3px solid;
+}
+
 .asbestos {
     background: #7f8c8d;
+}
+
+.asbestos-border {
+    border-left: #7f8c8d 3px solid;
 }
 
 .wet-asphalt {
@@ -85,11 +128,63 @@ hr.style-two {
     color: white;
 }
 
+.wet-asphalt-border {
+    border-left: #34495e 3px solid;
+}
+
 .sun-flower {
     background: #f1c40f;
+}
+
+.sun-flower-border {
+    border-left: #f1c40f 3px solid;
 }
 
 .alizarin {
     background: #e74c3c;
     color: white;
+}
+
+.alizarin-border {
+    border-left: #e74c3c 3px solid;
+}
+
+.belize-hole {
+    background: #2980b9;
+    color: white;
+}
+
+.belize-hole-border {
+    border-left: #2980b9 3px solid;
+}
+
+.btn-wide {
+    padding-left:45px !important;
+    padding-right: 45px;
+}
+
+.display-name {
+    font-size: 20px;
+}
+
+.display-designation {
+    font-size: 16px;
+    color: #7f8c8d; 
+}
+
+.display-company {
+    font-size: 18px;
+    text-decoration: underline; 
+}
+
+.display-website {
+    font-size: 16px;
+}
+
+.display-email {
+    font-size: 16px;
+}
+
+.display-address {
+    font-size: 16px;
 }

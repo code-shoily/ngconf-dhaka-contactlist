@@ -1,0 +1,26 @@
+app.controller("FormCtrl", ["$scope", "ContactList", function($scope, ContactList) {
+    $scope.contact = ContactList.newContact();
+    $scope.phone_types = ContactList.phoneTypes();
+    
+    $scope.setColor = function(color) {
+        $scope.contact.color = color;
+    }
+    
+    $scope.saveContact = function() {
+        ContactList.save($scope.contact);
+    }
+    
+    $scope.addPhone = function() {
+        $scope.contact.phones.push({
+            type: {
+                icon: "fa-home",
+                label: "Mobile (Personal)"
+            },
+            number: "",
+        });
+    }
+    
+    $scope.removePhone = function(index) {
+        $scope.contact.phones.splice(index, 1);
+    }
+}]);
