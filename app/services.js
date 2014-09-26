@@ -18,13 +18,26 @@ var fake_database = [
         ]
     },
     {
+        name: "Peter Parker",
+        designation: "Photographer",
+        company: "Daily Bugle",
+        email: "peter.parker@xxx.xx",
+        website: "http://spideys.fake.us",
+        address: "Somewhere in, New York, USA",
+        color: "pomegranate",
+        favorite: false,
+        phones: [
+            {type: {label: "Mobile (Personal)"}, number: "1-800-SPIDEY"},
+        ]
+    },
+    {
         name: "Tony Stark",
         designation: "CEO",
         company: "Stark Industries",
         email: "ironman@xxx.xxx",
         website: "",
         address: "Stark Industries, Marvel Universe",
-        color: "amethyst",
+        color: "sun-flower",
         favorite: false,
         phones: [
             {type: {label: "Mobile (Personal)"}, number: "01717XXXXXX"},

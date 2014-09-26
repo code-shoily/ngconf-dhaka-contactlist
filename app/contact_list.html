@@ -9,14 +9,14 @@
         <div class="well well-cloud">
             <!-- Single button -->
             <div class="btn-group">
-                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                    {{ predicate|uppercase }} <span class="caret"></span>
+                <button type="button" class="btn wet-asphalt btn-sm dropdown-toggle" data-toggle="dropdown">
+                    {{ predicate.label|uppercase }} <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                    <li ng-repeat="p in props" ng-click="$parent.predicate = p"><a>{{ p|uppercase }}</a></li>
+                    <li ng-repeat="p in props" ng-click="$parent.predicate = p"><a>{{ p.label|uppercase }}</a></li>
                 </ul>
             </div>
-            <button class="btn btn-sm wet-asphalt" 
+            <button class="btn btn-sm amethyst" 
                     ng-click="reverse = false">
                 <i class="fa fa-sort-alpha-asc"></i>
             </button>
@@ -33,7 +33,7 @@
             <input class="input input-sm pull-right" ng-model="search" />
             <div class="clearfix"></div>
         </div>
-        <div ng-repeat="contact in contactList|filter:search|orderBy:predicate:reverse track by $index"
+        <div ng-repeat="contact in contactList|filter:search|orderBy:predicate.value:reverse track by $index"
              class="contact-list-repeat">
             <div class="row">
                 <div class="col-md-12">

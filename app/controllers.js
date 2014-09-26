@@ -54,6 +54,10 @@ app.controller("ContactListCtrl", ["$scope", "ContactService", function($scope, 
         ContactService.toggleFavorite(contact);
     }
     
-    $scope.predicate = "name";
-    $scope.props = ["name", "favorite", "company"]
+    $scope.predicate = {label:"Name", value:"name"};
+    $scope.props = [
+        {label:"Name", value:"name"},
+        {label:"Favorite", value:"-favorite"},
+        {label:"Company", value:"company"}
+    ]
 }]);

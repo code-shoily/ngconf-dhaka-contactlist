@@ -91,7 +91,7 @@ hr.style-two {
 }
 
 .turquoise-border {
-    border-left: #1abc9c 3px solid;
+    border-left: #1abc9c 5px solid;
 }
 
 .emerald {
@@ -99,7 +99,7 @@ hr.style-two {
 }
 
 .emerald-border {
-    border-left: #2ecc71 3px solid;
+    border-left: #2ecc71 5px solid;
 }
 
 .amethyst {
@@ -107,15 +107,16 @@ hr.style-two {
 }
 
 .amethyst-border {
-    border-left: #9b59b6 3px solid;
+    border-left: #9b59b6 5px solid;
 }
 
 .pomegranate {
     background: #c0392b;
+    color: white;
 }
 
 .pomegranate-border {
-    border-left: #c0392b 3px solid;
+    border-left: #c0392b 5px solid;
 }
 
 .asbestos {
@@ -123,7 +124,7 @@ hr.style-two {
 }
 
 .asbestos-border {
-    border-left: #7f8c8d 3px solid;
+    border-left: #7f8c8d 5px solid;
 }
 
 .wet-asphalt {
@@ -132,7 +133,7 @@ hr.style-two {
 }
 
 .wet-asphalt-border {
-    border-left: #34495e 3px solid;
+    border-left: #34495e 5px solid;
 }
 
 .sun-flower {
@@ -140,7 +141,7 @@ hr.style-two {
 }
 
 .sun-flower-border {
-    border-left: #f1c40f 3px solid;
+    border-left: #f1c40f 5px solid;
 }
 
 .alizarin {
@@ -149,7 +150,7 @@ hr.style-two {
 }
 
 .alizarin-border {
-    border-left: #e74c3c 3px solid;
+    border-left: #e74c3c 5px solid;
 }
 
 .belize-hole {
@@ -158,7 +159,7 @@ hr.style-two {
 }
 
 .belize-hole-border {
-    border-left: #2980b9 3px solid;
+    border-left: #2980b9 5px solid;
 }
 
 .btn-wide {
@@ -229,18 +230,18 @@ textarea.ng-invalid.ng-dirty {
 
 .phone-form-repeat.ng-enter,
 .phone-form-repeat.ng-move {
-  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
 }
 
 .phone-form-repeat.ng-leave {
-  animation: fadeOut 0.5s;
+  -webkit-animation: fadeOut 0.5s;
 }
 
-.contact-list-repeat.ng-enter,
-.contact-list-repeat.ng-move {
-    animation: bounce 1s;
+
+.contact-form-appear.ng-enter {
+    -webkit-animation: zoomIn 0.4s;
 }
 
-.contact-list-repeat.ng-enter {
-    animation: bounce 1s;
+.contact-list-appear.ng-enter {
+    -webkit-animation: zoomIn 0.7s;
 }
